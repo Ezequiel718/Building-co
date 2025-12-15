@@ -9,6 +9,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.gold-text {
+				background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+				background-size: 200% auto;
+				color: #BF953F;
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				animation: shine 3s linear infinite;
+			}
+
+			@keyframes shine {
+				to {
+					background-position: 200% center;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -18,18 +35,19 @@
 				
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-rocket"></span>
+							<a href="#login" style="display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden;">
+								<img src="images/pic01.jpg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;" />
+							</a>
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1 style="color: #8f7d18;">Building Co.</h1>
+								<h1 class="gold-text">Building Co.</h1>
 								<p>Propiedades / Alquieres / Tasaciones</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">Ventas</a></li>
-								<li><a href="#work">Alquileres</a></li>
+								<li><a href="#propiedades">Propiedades</a></li>
 								<li><a href="#about">Tasaciones</a></li>
 								<li><a href="#contact">Contacto</a></li>
 								
@@ -41,16 +59,62 @@
 					<div id="main">
 
 						
-							<article id="intro">
-								<h2 class="major" style="color: #FFD700;">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+							<article id="propiedades">
+								<h2 class="major">Propiedades</h2>
+								<div class="search-card">
+									<!-- Tabs -->
+									<div class="tabs">
+										<button type="button" class="tab active" onclick="setOperation('comprar', this)">Comprar</button>
+										<button type="button" class="tab" onclick="setOperation('alquilar', this)">Alquilar</button>
+										<button type="button" class="tab" onclick="setOperation('emprendimientos', this)">Emprendimientos</button>
+									</div>
+
+									<!-- Form -->
+									<form method="post" action="#" onsubmit="search(event)">
+										<div class="search-group">
+											<select id="propertyType" style="cursor: pointer;">
+												<option value="" disabled selected>Tipo de Propiedad</option>
+												<option>Departamento</option>
+												<option>Casa</option>
+												<option>PH</option>
+												<option>Terreno</option>
+												<option>Oficina</option>
+												<option>Local</option>
+											</select>
+											<input type="text" id="query" placeholder="Ubicación o características (ej: pileta)" />
+											<button type="submit" class="search-btn primary">Buscar</button>
+										</div>
+									</form>
+								</div>
+							</article>
+
+							<article id="login">
+								<h2 class="major" style="color: #FFD700;">Acceso Propietarios</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field">
+											<label for="login-email">Usuario / Email</label>
+											<input type="text" name="login-email" id="login-email" placeholder="Ingrese su usuario" />
+										</div>
+										<div class="field">
+											<label for="login-pass">Contraseña</label>
+											<input type="password" name="login-pass" id="login-pass" placeholder="Ingrese su contraseña" />
+										</div>
+										<div class="field">
+											<input type="checkbox" id="remember" name="remember">
+											<label for="remember">Recordarme en este equipo</label>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Ingresar" class="primary" /></li>
+										<li><a href="#" class="button">Olvidé mi clave</a></li>
+									</ul>
+								</form>
 							</article>
 
 						
 							<article id="work">
-								<h2 class="major">Work</h2>
+								<h2 class="major">Alquileres</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
 								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
@@ -58,9 +122,26 @@
 
 						
 							<article id="about">
-								<h2 class="major">About</h2>
+								<h2 class="major">Tasaciones</h2>
 								<span class="image main"><img src="C:\Users\eze\Desktop\index\3eraSec\assets\webfonts\building 1.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<p>Solicitá una tasación profesional para tu propiedad. Ingresá los datos básicos para comenzar:</p>
+								<div class="search-card">
+									<form method="post" action="#" onsubmit="nextStepTasacion(event)">
+										<div class="search-group">
+											<select id="tasacionType" style="cursor: pointer;">
+												<option value="" disabled selected>Tipo de Propiedad</option>
+												<option>Departamento</option>
+												<option>Casa</option>
+												<option>PH</option>
+												<option>Terreno</option>
+												<option>Oficina</option>
+												<option>Local</option>
+											</select>
+											<input type="text" id="tasacionZone" placeholder="Zona / Ubicación" />
+											<button type="submit" class="search-btn primary">Siguiente</button>
+										</div>
+									</form>
+								</div>
 							</article>
 
 						
@@ -340,7 +421,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				
 					<footer id="footer">
-						<p><a>Asesorate con los que mas saben</a>.</p>
+						<p><a></a>.</p>
 					</footer>
 
 			</div>
@@ -354,6 +435,29 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				let operation = 'comprar';
+
+				function setOperation(op, element) {
+					operation = op;
+					document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+					element.classList.add('active');
+				}
+
+				function search(e) {
+					e.preventDefault();
+					const type = document.getElementById('propertyType').value;
+					const query = document.getElementById('query').value;
+					alert(`Búsqueda simulada:\nOperación: ${operation}\nTipo: ${type || 'Cualquiera'}\nConsulta: ${query}`);
+				}
+
+				function nextStepTasacion(e) {
+					e.preventDefault();
+					const type = document.getElementById('tasacionType').value;
+					const zone = document.getElementById('tasacionZone').value;
+					alert(`Solicitud de Tasación:\nTipo: ${type || 'No seleccionado'}\nZona: ${zone}`);
+				}
+			</script>
 
 	</body>
 </html>
